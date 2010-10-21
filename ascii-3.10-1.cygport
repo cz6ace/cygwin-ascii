@@ -1,0 +1,16 @@
+DESCRIPTION="ASCII character tables"
+HOMEPAGE="http://www.catb.org/~esr/${PN}/"
+SRC_URI="http://www.catb.org/~esr/${PN}/${P}.tar.gz"
+PATCH_URI="3.10-stricmp.patch"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	dobin ${PN}.exe
+	doman ${PN}.1
+}
