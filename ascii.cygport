@@ -1,0 +1,27 @@
+NAME="ascii"
+VERSION=3.12
+RELEASE=1
+CATEGORY="Text"
+SUMMARY="ASCII character tables"
+DESCRIPTION="The ascii utility provides easy conversion between various byte
+representations and the ASCII character table. It knows about a wide variety of
+hex, binary, octal, Teletype mnemonic, ISO/ECMA code point, slang names, XML
+entity names, and other representations. Given any one on the command line, it
+will try to display all others. Called with no arguments it displays a handy
+small ASCII chart."
+HOMEPAGE="http://www.catb.org/~esr/ascii/"
+SRC_URI="http://www.catb.org/~esr/ascii/${NAME}-${VERSION}.tar.gz"
+PATCH_URI="3.10-stricmp.patch
+           3.12-cflags.patch"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake CFLAGS="${CFLAGS}"
+}
+
+src_install() {
+	cd ${B}
+	dobin ${PN}.exe
+	doman ${PN}.1
+}
