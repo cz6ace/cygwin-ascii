@@ -1,5 +1,5 @@
 NAME="ascii"
-VERSION=3.15
+VERSION=3.18
 RELEASE=1
 CATEGORY="Text"
 SUMMARY="ASCII character tables"
